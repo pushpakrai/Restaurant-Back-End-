@@ -26,6 +26,14 @@ app.use('/api/payment/webhook', express.raw({ type: 'application/json' }), payme
 
 app.use(express.json({ limit: '2mb' }));
 
+app.get('/', (req, res) => {
+  res.json({
+    message: '💎 Welcome to the Cafe Diamond Queen API Backend',
+    status: 'Running Securely',
+    frontend_url: 'https://resturant-front-end.onrender.com'
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', time: new Date().toISOString() });
 });
